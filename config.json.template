@@ -1,0 +1,59 @@
+{
+  "MQTT": {
+    "BROKER": "",
+    "PORT": 1883,
+    "USERNAME": "",
+    "PASSWORD": "",
+    "CLIENT_ID": "generic_api2mqtt"
+	"BASE_TOPIC": "smarthome"
+  },
+  "WEBHOOK": {
+    "HTTP_PORT": 80
+  },
+  "SWITCHBOT": {
+    "API_BASEURL": "https://api.switch-bot.com/v1.1/",
+    "TOKEN": "",
+    "SECRET": "",
+    "DEVICES": {
+      "smartlockpro.ingresso": "",
+      "keypad.ingresso": "",
+      "hubmini.soggiorno": "",
+      ...
+    },
+    "VALID_COMMANDS": {
+      "smartlockpro": {
+        "lock": {"command": "lock", "commandType": "command"},
+        "unlock": {"command": "unlock", "commandType": "command"},
+        ...
+      }
+    },
+    "POLLING_INTERVAL_SEC": 0
+  },
+  "SMARTTHINGS": {
+    "API_BASEURL": "https://api.smartthings.com/v1/",
+    "TOKEN": "",
+    "DEVICES": {
+      "frigorifero.cucina": "",
+      "climatizzatore.studio": "",
+      "tv.soggiorno": "",
+      ...
+    },
+    "VALID_COMMANDS": {
+      "frigorifero": {},
+      "climatizzatore": {
+        "on": {"commands": [{"component": "main", "capability": "switch", "command": "on"}]},
+        "off": {"commands": [{"component": "main", "capability": "switch", "command": "off"}]},
+        "setTemperature": {"commands": [{"component": "main", "capability": "thermostatCoolingSetpoint", "command": "setCoolingSetpoint", "arguments": ["%value%"]}]},
+        "setAirConditionerMode": {"commands": [{"component": "main", "capability": "airConditionerMode", "command": "setAirConditionerMode", "arguments": ["%value%"]}]},
+        "setAirConditionerFanMode": {"commands": [{"component": "main", "capability": "airConditioneFanMode", "command": "setFanMode", "arguments": ["%value%"]}]},
+        "setAirConditionerOptionalMode": {"commands": [{"component": "main", "capability": "custom.airConditionerOptionalMode", "command": "setAcOptionalMode", "arguments": ["%value%"]}]},
+        "setFanOscillationMode": {"commands": [{"component": "main", "capability": "fanOscillationMode", "command": "setFanOscillationMode", "arguments": ["%value%"]}]}
+      },
+      "tv": {
+        "on": {"commands": [{"component": "main", "capability": "switch", "command": "on"}]},
+        "off": {"commands": [{"component": "main", "capability": "switch", "command": "off"}]}
+      }
+    },
+   "POLLING_INTERVAL_SEC": 0
+  }
+}

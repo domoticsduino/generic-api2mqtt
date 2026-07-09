@@ -1,0 +1,13 @@
+services:
+  generic_api2mqtt:
+    build: .
+    container_name: generic_api2mqtt
+    restart: always
+    network_mode: host
+    volumes:
+      - generic_api2mqtt_log:/logs
+    environment:
+      - TZ=Europe/Rome
+        
+volumes:
+  generic_api2mqtt_log: null

@@ -47,7 +47,7 @@ class SwitchBotProvider(BaseProvider):
                 device_name = self.devices_by_id.get(device_id)
                 topic = f"{self.mqtt_base_topic}{device_name}/event"
                 self.logger.info(f"Sending event to MQTT topic {topic}")
-                self.mqtt_client.publish(topic, json.dumps(data))
+                self.mqtt_client.publish(topic, json.dumps(data), qos=1, retain=True)
                 return {"status": "ok"}, 200
         return {"error": "Invalid payload"}, 400
 

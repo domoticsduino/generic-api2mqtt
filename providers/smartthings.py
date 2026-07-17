@@ -44,7 +44,7 @@ class SmartThingsProvider(BaseProvider):
                     if device_name:
                         topic = f"{self.mqtt_base_topic}{device_name}/event"
                         self.logger.info(f"Sending event to MQTT topic {topic}")
-                        self.mqtt_client.publish(topic, json.dumps(event))
+                        self.mqtt_client.publish(topic, json.dumps(event), qos=1, retain=True)
             return {"eventData": {}}, 200
 
         elif data.get("lifecycle") == "INSTALL":
